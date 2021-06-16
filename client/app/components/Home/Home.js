@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
+import AddData from '../CRUD/AddData';
+import List from '../List/List';
 
 class Home extends Component {
   constructor(props) {
@@ -9,12 +11,12 @@ class Home extends Component {
       counters: []
     };
 
-    this.newCounter = this.newCounter.bind(this);
-    this.incrementCounter = this.incrementCounter.bind(this);
-    this.decrementCounter = this.decrementCounter.bind(this);
-    this.deleteCounter = this.deleteCounter.bind(this);
+    // this.newCounter = this.newCounter.bind(this);
+    // this.incrementCounter = this.incrementCounter.bind(this);
+    // this.decrementCounter = this.decrementCounter.bind(this);
+    // this.deleteCounter = this.deleteCounter.bind(this);
 
-    this._modifyCounter = this._modifyCounter.bind(this);
+    // this._modifyCounter = this._modifyCounter.bind(this);
   }
 
   componentDidMount() {
@@ -85,7 +87,7 @@ class Home extends Component {
 
   render() {
     return (
-      <>
+      <div>
         <p>Counters:</p>
 
         <ul>
@@ -100,7 +102,9 @@ class Home extends Component {
         </ul>
 
         <button onClick={this.newCounter}>New counter</button>
-      </>
+        <AddData/>
+        <List/>
+      </div>
     );
   }
 }
