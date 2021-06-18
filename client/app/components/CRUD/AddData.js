@@ -1,11 +1,13 @@
+import { connect } from 'react-redux';
 import React from 'react';
+import { startAddData } from '../../actions/data';
 import DataForm from '../DataForm/DataForm';
 
 
 export class AddData extends React.Component {
     
     onSubmit = (data) => {
-        console.log("This is printed",data);
+        this.props.startAddData(data);
     }
     
     render(){
@@ -17,4 +19,8 @@ export class AddData extends React.Component {
     }
 }
 
-export default AddData;
+const mapDispatchToProps = (dispatch) => ({
+    startAddData: (data) => dispatch(startAddData(data))
+});
+
+export default connect(undefined, mapDispatchToProps)(AddData);

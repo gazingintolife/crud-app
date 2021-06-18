@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
-const CounterSchema = new mongoose.Schema({
-  count: {
-    type: Number,
-    default: 0
-  }
+const dataSchema = new mongoose.Schema({
+  name: String,
+  email: String,
+  age: Number,
+  gender: String
 });
 
-module.exports = mongoose.model('Counter', CounterSchema);
+module.exports = mongoose.model('Data', dataSchema);

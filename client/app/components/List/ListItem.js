@@ -1,16 +1,18 @@
 import React from 'react';
 
-const ListItem = (item) => {
+const ListItem = (data) => {
     return (
         <div>
-            <p>Name</p>
-            <p>Email</p>
-            <p>Age</p>
-            <p>Gender</p>
-            <div>
-                <button>Edit</button>
-                <button>Delete</button>
-            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <td>{data.name}</td>
+                        <td>{data.email}</td>
+                        <td>{data.age}</td>
+                        <td>{data.gender}</td>
+                    </tr>
+                </thead>
+            </table>
         </div>
     );
 }

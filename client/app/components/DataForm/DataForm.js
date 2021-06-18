@@ -48,6 +48,8 @@ export default class DataForm extends React.Component {
                 age: this.state.age,
                 gender: this.state.gender
             });
+            const form = document.getElementsByName('form')[0];
+            form.reset();
         }
         
 
@@ -56,7 +58,7 @@ export default class DataForm extends React.Component {
         return (
             <div>
             { this.state.error && <p>{this.state.error}</p>}
-            <form onSubmit = {this.onSubmit}>
+            <form name = "form" onSubmit = {this.onSubmit}>
                     <input
                         type = 'text'
                         placeholder = 'Name'
