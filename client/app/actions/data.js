@@ -34,3 +34,8 @@ export const editData = (id, updates) => ({
     id,
     updates
 })
+
+export const deleteData = (id) => ({
+    type: "DELETE_DATA",
+    id
+})

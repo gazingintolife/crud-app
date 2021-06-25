@@ -1,7 +1,8 @@
 import React from 'react';
 import DataForm from '../DataForm/DataForm';
 import { connect } from 'react-redux';
-import { editData } from '../../actions/data';
+import { deleteData, editData } from '../../actions/data';
+import List from '../List/List';
 
 const EditData = (props) => {
     return(
@@ -9,8 +10,6 @@ const EditData = (props) => {
             <DataForm
             data = {props.data}
             onSubmit = {(data) => {
-                console.log(data);
-                console.log(props.data._id);
                 const options = {
                     method: 'PUT',
                     headers: {
@@ -23,12 +22,22 @@ const EditData = (props) => {
                 .then(json => {
                     props.dispatch(editData(props.data._id, json));
                 })
-
                 props.history.push('/');
-
-
             }}
             />
+
+            <button onClick = {(data) => {
+                fetch(`/api/deletedata/${props.data._id}`,{method: 'DELETE'})
+                .then(res => res.json())
+                .then(json => {
+                    props.dispatch(deleteData({id: json._id}))
+                    console.log(json._id)
+                })
+                
+                props.history.push('/');
+            }}>Delete
+            </button>
+            <List/>
         </div>
     );
 }
@@ -36,7 +45,7 @@ const EditData = (props) => {
 const mapStateToProps = (state,props) => {
     return {
         data: state.reducer.find((data) => {
-            return data.id === props._id
+            return data._id === props.match.params.id
         })
     };
 };

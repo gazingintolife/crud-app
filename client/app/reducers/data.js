@@ -27,6 +27,8 @@ const dataReducer = (state = dataReducerDefaultState, action) => {
                     return data
                 }
             })
+        case 'DELETE_DATA':
+            return state.filter(({id}) => id !== action.id)
 
         default:
         return state;

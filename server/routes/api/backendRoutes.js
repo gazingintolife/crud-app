@@ -37,7 +37,16 @@ module.exports = (app) => {
     .catch((err) => next(err))
   })
 
-
+app.delete('/api/deletedata/:id', (req,res,next) => {
+  Data.findByIdAndDelete(req.params.id)
+  .exec()
+  .then((data) => {
+    res.json(data)
+    console.log(data)
+  })
+  .catch((err) => next(err))
+  
+}) 
 
   // app.delete('/api/counters/:id', function (req, res, next) {
   //   Counter.findOneAndDelete({ _id: req.params.id })

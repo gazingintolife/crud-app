@@ -9,6 +9,7 @@ class ListItem extends React.Component{
     
     onButtonClick = () =>{
         this.props.history.push(`/edit/${this.props._id}`)
+        console.log(this.props._id);
     }
 
     render(){
