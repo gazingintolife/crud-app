@@ -1,20 +1,34 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
-const ListItem = (data) => {
-    return (
+class ListItem extends React.Component{
+
+    constructor(props){
+        super(props);
+    }
+    
+    onButtonClick = () =>{
+        this.props.history.push(`/edit/${this.props._id}`)
+    }
+
+    render(){
+        return (
         <div>
             <table>
-                <thead>
+                <tbody>
                     <tr>
-                        <td>{data.name}</td>
-                        <td>{data.email}</td>
-                        <td>{data.age}</td>
-                        <td>{data.gender}</td>
+                        <td>{this.props.name}</td>
+                        <td>{this.props.email}</td>
+                        <td>{this.props.age}</td>
+                        <td>{this.props.gender}</td>
+                        <td>
+                            <button onClick = {this.onButtonClick} >Edit</button>
+                        </td>
                     </tr>
-                </thead>
+                </tbody>
             </table>
         </div>
-    );
+    )};
 }
 
-export default ListItem;
+export default withRouter(ListItem);

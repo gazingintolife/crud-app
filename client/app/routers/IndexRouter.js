@@ -7,6 +7,7 @@ import {
 import App from '../components/App/App';
 import NotFound from '../components/App/NotFound';
 import Home from '../components/Home/Home';
+import EditData from '../components/CRUD/EditData';
 
 const AppRouter = () => (
     <Router>
@@ -14,7 +15,9 @@ const AppRouter = () => (
             <App>
                 <Switch>
                     <Route exact path="/" component={Home}/>
+                    <Route exact path = "/edit/:id?" component = {EditData} />
                     <Route component={NotFound}/>
+
                 </Switch>
             </App>
         </div>

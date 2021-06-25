@@ -18,7 +18,12 @@ const port  = process.env.PORT || 8080;
 // ================================================================================================
 
 // Set up Mongoose
-mongoose.connect(isDev ? config.db_dev : config.db, {useNewUrlParser: true}, { useUnifiedTopology: true });
+mongoose.connect(isDev ? config.db_dev : config.db, {useNewUrlParser: true}, { useUnifiedTopology: true }, {useFindAndModify: false});
+
+mongoose.connection.once('open', () => {
+  console.log('Database connected', isDev ? config.db_dev : config.db);
+})
+//mongoose.connect(config.db, {useNewUrlParser: true}, { useUnifiedTopology: true });
 mongoose.Promise = global.Promise;
 
 const app = express();

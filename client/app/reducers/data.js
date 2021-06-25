@@ -8,6 +8,26 @@ const dataReducer = (state = dataReducerDefaultState, action) => {
                 ...state,
                 action.data
             ]
+        case 'SET_STATE':
+            return [
+                ...action.data
+            ]
+        case 'EDIT_DATA':
+            return state.map((data) => {
+                if(data._id === action.id){
+                    // console.log(data)
+                    // console.log(action.id)
+                    return {
+                        ...data,
+                        ...action.updates
+                    };
+                    
+                }
+                else {
+                    return data
+                }
+            })
+
         default:
         return state;
     }

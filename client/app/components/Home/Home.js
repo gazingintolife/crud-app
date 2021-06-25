@@ -8,25 +8,8 @@ class Home extends Component {
     super(props);
 
     this.state = {
-      counters: []
+      list: []
     };
-
-    // this.newCounter = this.newCounter.bind(this);
-    // this.incrementCounter = this.incrementCounter.bind(this);
-    // this.decrementCounter = this.decrementCounter.bind(this);
-    // this.deleteCounter = this.deleteCounter.bind(this);
-
-    // this._modifyCounter = this._modifyCounter.bind(this);
-  }
-
-  componentDidMount() {
-    fetch('/api/counters')
-      .then(res => res.json())
-      .then(json => {
-        this.setState({
-          counters: json
-        });
-      });
   }
 
   newCounter() {
@@ -88,7 +71,9 @@ class Home extends Component {
   render() {
     return (
       <div>
+
         <AddData/>
+        
         <table>
           <tbody>
             <tr>
@@ -99,7 +84,9 @@ class Home extends Component {
             </tr>
           </tbody>
         </table>
+        
         <List/>
+
       </div>
     );
   }
