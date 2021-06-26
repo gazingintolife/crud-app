@@ -19,13 +19,13 @@ class List extends React.Component {
 
     render() {        
         return (
-            <div>
+            <div className = "container">
                 {
                     this.props.data.length === 0 ?
                     (
                         <p>No Data</p>
                     ): 
-                    (
+                    (   
                         this.props.data.map((data) => (<ListItem key= {data._id} {...data}/>))
                     )
                 }

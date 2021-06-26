@@ -40,6 +40,7 @@ module.exports = {
       // SCSS files
       {
         test: /\.scss$/,
+
         loader: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
@@ -88,4 +89,5 @@ module.exports = {
       from: helpers.root('client/public')
     }])
   ]
-};
+}
+;

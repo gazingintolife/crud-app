@@ -48,43 +48,66 @@ export default class DataForm extends React.Component {
                 age: this.state.age,
                 gender: this.state.gender
             });
-            const form = document.getElementsByName('form')[0];
-            form.reset();
+            this.setState(() => ({
+                name: '',
+                email: '',
+                age: '',
+                gender: ''
+            }))
         }
         
 
     }
     render(){
         return (
-            <div>
+            <div className = "container my-5 mx-1 text-center">
             { this.state.error && <p>{this.state.error}</p>}
             <form name = "form" onSubmit = {this.onSubmit}>
-                    <input
-                        type = 'text'
-                        placeholder = 'Name'
-                        value = {this.state.name}
-                        onChange = {this.onNameChange}
-                    />
-                    <input
-                        type = 'email'
-                        placeholder = 'Email'
-                        value = {this.state.email}
-                        onChange = {this.onEmailChange}
-                    />
-                    <input
-                        type = 'number'
-                        placeholder = 'Age'
-                        value = {this.state.age}
-                        onChange = {this.onAgeChange}
-                    />
-                    <input
-                        type = 'text'
-                        placeholder = 'Gender'
-                        value = {this.state.gender}
-                        onChange = {this.onGenderChange}
-                    />
-                    <button>Add Data</button>
-                </form>
+                    <div className = "row">
+                        <div className = "col ">
+                            <input
+                                className = "shadow-sm bg-light rounded"
+                                type = 'text'
+                                placeholder = 'Name'
+                                value = {this.state.name}
+                                onChange = {this.onNameChange}
+                            />
+                        </div>
+                        <div className = "col">
+                            <input
+                                className = "shadow-sm bg-light rounded"
+                                type = 'email'
+                                placeholder = 'Email'
+                                value = {this.state.email}
+                                onChange = {this.onEmailChange}
+                        />
+                        </div>
+                        <div className = "col">
+                            <input
+                                className = "shadow-sm bg-light rounded"
+                                type = 'number'
+                                placeholder = 'Age'
+                                value = {this.state.age}
+                                onChange = {this.onAgeChange}
+                            />
+                        </div>
+                        
+                        <div className = "col">
+                            <input
+                                className = "shadow-sm bg-light rounded"
+                                type = 'text'
+                                placeholder = 'Gender'
+                                value = {this.state.gender}
+                                onChange = {this.onGenderChange}
+                            />
+                        </div>
+                        <div className = "col">
+                            <button className = "btn btn-success">Add Data</button>
+                        </div>
+                        
+                        
+                    </div>
+            </form>
             </div>
         )
     }
