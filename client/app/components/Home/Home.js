@@ -8,28 +8,28 @@ const Home = () => {
 
         <h2 className = "p-3 my-1 text-center">Add your Info here!</h2>
         <AddData/>  
-        <div class="container">
+        <div className="container">
           <div className = "p-1">
-            <div class="row my-3 m-1 text-center">
-              <div class="col">
+            <div className="row my-3 m-1 text-center">
+              <div className="col">
                 <p className = "font-weight-bold">Name</p>
               </div>
-              <div class="col font-weight-bold">
+              <div className="col font-weight-bold">
                 Email
               </div>
-              <div class="col font-weight-bold">
+              <div className="col font-weight-bold">
                 Age
               </div>
-              <div class="col font-weight-bold">
+              <div className="col font-weight-bold">
                 Gender
               </div>
-              <div class="col font-weight-bold">
+              <div className="col font-weight-bold">
                 Action
               </div>
             </div>
           </div>
 
-          <div class="row">
+          <div className="row">
            <List/>
           </div>
         </div>

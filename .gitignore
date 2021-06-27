@@ -2,7 +2,7 @@
 dist/
 
 # Config file
-config/config.example.js
+.env
 
 # Node stuff
 node_modules

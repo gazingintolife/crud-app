@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import AppRouter from './routers/IndexRouter';
 import configureStore from './store/configureStore';
 import './styles/styles.scss';
-import { Tooltip, Toast, Popover } from 'bootstrap';
 
 const store = configureStore();
 

@@ -6,8 +6,11 @@ const path = require('path');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
+const dotenv = require('dotenv');
+dotenv.config()
 
-const config = require('../config/config.example');
+
+const config = require('../config/mongo.config.example');
 const webpackConfig = require('../webpack.config');
 
 const isDev = process.env.NODE_ENV !== 'production';
@@ -19,7 +22,7 @@ console.log(process.env.NODE_ENV)
 // ================================================================================================
 
 // Set up Mongoose
-mongoose.connect(config.db, {useNewUrlParser: true}, { useUnifiedTopology: true }, {useFindAndModify: false});
+mongoose.connect(isDev ? config.db_dev :config.db, {useNewUrlParser: true}, { useUnifiedTopology: true }, {useFindAndModify: false});
 
 mongoose.connection.once('open', () => {
   console.log('Database connected', isDev ? config.db_dev : config.db);

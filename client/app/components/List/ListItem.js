@@ -14,21 +14,21 @@ class ListItem extends React.Component{
 
     render(){
         return (
-            <div class="container text-center">
-                <div class="row">
-                  <div class="col p-3">
+            <div className="container text-center">
+                <div className="row">
+                  <div className="col p-3">
                     {this.props.name}
                   </div>
-                  <div class="col p-3">
+                  <div className="col p-3">
                       {this.props.email}
                   </div>
-                  <div class="col p-3">
+                  <div className="col p-3">
                       {this.props.age}
                   </div>
-                  <div class="col p-3">
+                  <div className="col p-3">
                       {this.props.gender}
                   </div>
-                  <div class="col p-3">
+                  <div className="col p-3">
                       <button className = "btn btn-light" onClick = {this.onButtonClick} >Edit</button>
                   </div>
                 </div>
