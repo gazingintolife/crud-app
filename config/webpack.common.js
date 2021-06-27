@@ -22,10 +22,6 @@ module.exports = {
     publicPath: '/'
   },
 
-  optimization: {
-    minimizer: [new UglifyJsPlugin()]
-  },
-
   resolve: {
     extensions: ['.js', '.json', '.css', '.scss', '.html'],
     alias: {
