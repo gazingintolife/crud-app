@@ -2,7 +2,6 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { startAddData } from '../../actions/data';
 import DataForm from '../DataForm/DataForm';
-const config = require('../../../../config/config.example');
 
 export class AddData extends React.Component {
     onSubmit = (data) => {
