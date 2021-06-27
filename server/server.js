@@ -22,12 +22,10 @@ const port  = process.env.PORT || 8080;
 // ================================================================================================
 
 // Set up Mongoose
-try{
-  mongoose.connect(config.db, {useNewUrlParser: true}, { useUnifiedTopology: true }, {useFindAndModify: false})
-}catch(err){
+mongoose.connect(config.db, {useNewUrlParser: true}, { useUnifiedTopology: true }, {useFindAndModify: false})
+.then((err) => {
   console.log(err)
-}
-
+})
 mongoose.connection.once('open', () => {
   console.log('Database connected',  config.db);
 })
