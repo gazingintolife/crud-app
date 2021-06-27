@@ -16,24 +16,21 @@ const webpackConfig = require('../webpack.config');
 const isDev = process.env.NODE_ENV !== 'production';
 const port  = process.env.PORT || 8080;
 
-
 // console.log(process.env.NODE_ENV)
 // Configuration
 // ================================================================================================
 
 // Set up Mongoose
-mongoose.connect(config.db, {useNewUrlParser: true}, { useUnifiedTopology: true }, {useFindAndModify: false})
-.then((err) => {
-  if(err){
-  console.log(err);
-  }else{
-    console.log("connected Successfully");
-  }
-})
+try{
+  mongoose.connect(config.db, {useNewUrlParser: true}, { useUnifiedTopology: true }, {useFindAndModify: false});
+}catch (error){
+  handleError(error);
+}
+
+
 mongoose.connection.once('open', () => {
   console.log('Database connected',  config.db);
 })
-mongoose.Promise = global.Promise;
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));

@@ -16,6 +16,7 @@ module.exports = (app) => {
 
   app.post('/api/adddata', (req, res, next) => {
     
+    Data.createCollection("userdata", () => (console.log("collection created")))
     const data = new Data({...req.body});
 
     try{

@@ -5,6 +5,10 @@ const dataSchema = new mongoose.Schema({
   email: String,
   age: Number,
   gender: String
-}, {collection: 'userdata'});
+}, {
+  collection: 'userdata',
+  bufferCommands: false,
+  autoCreate: false
+});
 
 module.exports = mongoose.model('Data', dataSchema);
