@@ -17,15 +17,15 @@ const isDev = process.env.NODE_ENV !== 'production';
 const port  = process.env.PORT || 8080;
 
 
-console.log(process.env.NODE_ENV)
+// console.log(process.env.NODE_ENV)
 // Configuration
 // ================================================================================================
 
 // Set up Mongoose
-mongoose.connect(isDev ? config.db_dev :config.db, {useNewUrlParser: true}, { useUnifiedTopology: true }, {useFindAndModify: false});
+mongoose.connect(config.db, {useNewUrlParser: true}, { useUnifiedTopology: true }, {useFindAndModify: false});
 
 mongoose.connection.once('open', () => {
-  console.log('Database connected', isDev ? config.db_dev : config.db);
+  console.log('Database connected',  config.db);
 })
 mongoose.Promise = global.Promise;
 
