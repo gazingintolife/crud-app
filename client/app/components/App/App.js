@@ -4,7 +4,7 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
 const App = ({ children }) => (
-  <div className = " p-3 border border-danger">
+  <div className = " p-3">
     <Header />
 
     <main>
