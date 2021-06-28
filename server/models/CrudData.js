@@ -7,8 +7,6 @@ const dataSchema = new mongoose.Schema({
   gender: String
 }, {
   collection: 'userdata',
-  bufferCommands: false,
-  autoCreate: false
 });
 
 module.exports = mongoose.model('Data', dataSchema);
