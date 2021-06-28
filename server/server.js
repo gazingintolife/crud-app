@@ -23,7 +23,6 @@ const port  = process.env.PORT || 8080;
 // Set up Mongoose
 try{
   mongoose.connect(config.db, {useNewUrlParser: true}, { useUnifiedTopology: true }, {useFindAndModify: false});
-  console.log(process.env.DB_USER, process.env.DB_PASS);
 }catch (error){
   handleError(error);
 }
