@@ -11,9 +11,17 @@ class List extends React.Component {
 
     componentDidMount() {
         fetch('/api/getdata', {method: 'GET'})
-        .then((res) => res.json())
+        .then((res) => {
+            if(res.ok){
+                return res.json()
+            }else{
+                throw new Error("something went wrong");
+            }
+        })
         .then(json => {
             this.props.setStoreState(json);
+        }).catch((error) => {
+            console.log(error)
         })
     }
 
